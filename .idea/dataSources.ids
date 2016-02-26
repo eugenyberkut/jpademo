@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - jpaexample@localhost" uuid="34458a48-e14e-4c08-85a5-4e3d6ebb2b95">
+    <database-info product="MySQL" version="5.5.5-10.1.9-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="jpaexample"/>
+      <table id="2" parent="1" name="gruppa"/>
+      <table id="3" parent="1" name="person"/>
+      <table id="4" parent="1" name="person_phone"/>
+      <table id="5" parent="1" name="phone"/>
+      <column id="6" parent="2" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="7" parent="2" name="NAME">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="8" parent="2" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <column id="9" parent="3" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="10" parent="3" name="BIRTHYEAR">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="11" parent="3" name="FIO">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="12" parent="3" name="GRUPPA_ID">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="3" name="FK_PERSON_GRUPPA_ID">
+        <columns>GRUPPA_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="14" parent="3" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="15" parent="3" name="FK_PERSON_GRUPPA_ID">
+        <columns>GRUPPA_ID</columns>
+        <ref-key>~.gruppa.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="16" parent="4" name="phones_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="17" parent="4" name="persons_ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="18" parent="4" name="FK_PERSON_PHONE_persons_ID">
+        <columns>persons_ID</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="19" parent="4" name="PRIMARY">
+        <columns>phones_ID
+persons_ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="20" parent="4" name="FK_PERSON_PHONE_persons_ID">
+        <columns>persons_ID</columns>
+        <ref-key>~.person.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <foreign-key id="21" parent="4" name="FK_PERSON_PHONE_phones_ID">
+        <columns>phones_ID</columns>
+        <ref-key>~.phone.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="22" parent="5" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="23" parent="5" name="NUM">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="24" parent="5" name="TYPE">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="25" parent="5" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
